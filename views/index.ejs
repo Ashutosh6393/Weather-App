@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Weather and Pollution monitoring App</title>
+    <meta
+      name="description"
+      
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h2>Weather App</h2>
+      <ul>
+        <li><a href="#1" class="active">Weather</a></li>
+        <li><a href="#2" id="underMaintainence">Pollution</a></li>
+      </ul>
+    </header>
+    <section>
+      <img
+        src="images/cloud_1-removebg.png"
+        alt="cloud type1"
+        srcset=""
+        id="c1"
+      />
+      <img src="images/cloud 2.png" alt="cloud type2" srcset="" id="c2" />
+      <img src="images/cloud 3.png" alt="cloud type3" srcset="" id="c3" />
+      <img src="images/sun.png" alt="sun" srcset="" id="sun" />
+
+      <img src="images/cloud 4.png" alt="cloud type4" srcset="" id="c4" />
+
+      <form action="/" method="post">
+        <input
+          type="text"
+          name="city"
+          id="textbox"
+          placeholder="Enter your location"
+        />
+        <button type="submit">⚡</button>
+      </form>
+    </section>
+    <div class="content display" id="main">
+      <div class="weather" id="1">
+        <h3 class="heading">Weather Details</h3>
+        <h4 class="city"><%=city%></h4>
+        <div class="data-box">
+          <div id="icon">
+            <img src="<%=icon%>" alt="weather icon" />
+          </div>
+
+          <div id="dataw">
+            <div class="keys">
+              <p class="key">Temperature</p>
+              <p class="key">Weather</p>
+              <p class="key">Wind Speed</p>
+              <p class="key">Humidity</p>
+              <p class="key">Max-Temperature</p>
+              <p class="key">Min-Temperature</p>
+            </div>
+
+            <div class="values">
+              <p id="temp" class="value"><%=temperature%> °C</p>
+              <p id="weat" class="value"><%=desc%></p>
+              <p id="wind" class="value"><%=wind%> m/s</p>
+              <p id="humi" class="value"><%=humidity%> %</p>
+              <p id="maxt" class="value"><%=maxtemp%> °C</p>
+              <p id="mint" class="value"><%=mintemp%> °C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="pollution" id="2">
+        <h3 class="heading">Pollution Details</h3>
+        <div class="data-box">
+          <div id="pkeys">
+            <p class="key">Main AQI</p>
+            <p class="key">Fine Particulate Matter</p>
+            <p class="key">Coarse Particulate Matter</p>
+            <p class="key">Carbon Monoxide</p>
+          </div>
+
+          <div class="values">
+            <p id="aqi"></p>
+            <p id="pm2"></p>
+            <p id="pm10"></p>
+            <p id="co"></p>
+          </div>
+        </div>
+      </div> -->
+      <h4 class="foot">Made By Ashutosh</h4>
+    </div>
+
+    <script>
+      const notFound = "<%=statusCode%>";
+      const displayCode = "<%=display%>";
+      const display = document.getElementById("main");
+      const maintainence = document.getElementById("underMaintainence");
+      
+      const sun = document.getElementById('sun');
+      const cloud1 = document.getElementById('c1');
+      const cloud2 = document.getElementById('c2');
+      const cloud3 = document.getElementById('c3');
+      const cloud4 = document.getElementById('c4');
+      const weatherBox = document.getElementById('1');
+      const form = document.querySelector('form');
+
+      if (notFound != 200) {
+        window.alert("Could Not Find City");
+      }
+
+      if (displayCode == 1) {
+        display.classList.remove("display");
+      }
+
+      maintainence.addEventListener('click', function(){
+        window.alert("Currently this function is under Construction")
+      })
+      document.addEventListener('scroll', function(){
+      const value = window.scrollY;
+      sun.style.right = 390+ value* 0.25+'px';
+      sun.style.top = 50+ value* 0.45+'px';
+      cloud4.style.right = 30 + value*(-0.2)+'px';
+      cloud4.style.top = 50 + value*(0.2)+'px';
+      cloud3.style.left = -300 + value*(0.3)+'px';
+      cloud3.style.top = 180 + value*(0.2)+'px';
+      cloud1.style.left =  0+ value*(-0.5)+'px';
+      cloud2.style.right = -50 + value*(-0.5)+'px';
+      weatherBox.style.top = -250 + value*(0.4)+'px'
+      form.style.paddingTop = value*(0.9)+'px'
+
+})
+
+    </script>
+  </body>
+</html>
