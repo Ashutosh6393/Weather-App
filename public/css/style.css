@@ -171,7 +171,7 @@ section button:hover {
   border-radius: 50px;
   background: #fff;
   z-index: 13;
-  width: 50%;
+  width: fit-content;
   padding: 30px;
   top: -250px;
   box-shadow: 0px 0px 100px 6px #c5c4c481;
