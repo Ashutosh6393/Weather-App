@@ -34,7 +34,7 @@ app.get('*',(req, res)=>{
 
 app.post("/", (req, res) => {
   const cityName = req.body.city;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=6b638b00f9437e6068253b8aa946a046&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b638b00f9437e6068253b8aa946a046&units=metric`;
 
   https.get(url, (response) => {
     response.on("data", function (data) {
@@ -81,4 +81,4 @@ app.post("/", (req, res) => {
   });
 });
 
-app.listen(process.env.PORT ||3000, () => console.log("server started at port 3000"));
+app.listen(process.env.PORT ||3000, () => console.log("server started at port 3000"));6
